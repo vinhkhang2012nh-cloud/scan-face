@@ -128,7 +128,7 @@ async function startVerification() {
 
   const targetPerson = labeledDescriptors[inputName];
   if (!targetPerson) {
-    showModal(`Không có dữ liệu ảnh cho tên "${inputName}". Kiểm tra lại danh sách faces `);
+    showModal(`Không có dữ liệu ảnh cho tên "${inputName}". Kiểm tra lại danh sách faces....... `);
     return;
   }
 
