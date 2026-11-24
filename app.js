@@ -60,13 +60,13 @@ async function initSystem() {
       faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL)
     ]);
 
-    // Đọc từng ảnh mẫu bạn đã cung cấp và trích xuất đặc trưng
     for (const person of REFERENCE_FACES) {
       const descriptors = [];
       for (const imgPath of person.images) {
         try {
           const img = await faceapi.fetchImage(imgPath);
-          const detection = await faceapi.detectSingleFace(img)
+          const detection = await faceapi
+            .detectSingleFace(img)
             .withFaceLandmarks()
             .withFaceDescriptor();
 
@@ -91,7 +91,7 @@ async function initSystem() {
       }
     }
 
-    statusEl.textContent = `Sẵn sàng `;
+    statusEl.textContent = 'Sẵn sàng ';
     statusEl.className = 'status-ready';
     document.getElementById('start-scan-btn').disabled = false;
   } catch (err) {
