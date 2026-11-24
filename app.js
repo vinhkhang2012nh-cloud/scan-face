@@ -76,19 +76,18 @@ async function initSystem() {
             console.warn(`Không thấy mặt rõ trong ảnh: ${imgPath}`);
           }
         } catch (imgErr) {
-        console.warn(`Không tải được ảnh: ${imgPath}`, imgErr);
-        alert(`Lỗi tải ảnh ${imgPath}: ` + (imgErr.message || imgErr));
-      }
+          console.warn(`Không tải được ảnh: ${imgPath}`, imgErr);
+          alert(`Lỗi tải ảnh ${imgPath}: ` + (imgErr.message || imgErr));
+        }
       }
 
-     if (descriptors.length > 0) {
-      labeledDescriptors[person.name.trim().toLowerCase()] = {
-        displayName: person.name.trim(),
-        descriptors
-      };
-    } else {
-      alert(`Không phát hiện khuôn mặt trong ảnh của: ${person.name}`);
-    }
+      if (descriptors.length > 0) {
+        labeledDescriptors[person.name.trim().toLowerCase()] = {
+          displayName: person.name.trim(),
+          descriptors
+        };
+      } else {
+        alert(`Không phát hiện khuôn mặt trong ảnh của: ${person.name}`);
       }
     }
 
